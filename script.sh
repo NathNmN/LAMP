@@ -21,4 +21,3 @@ echo -e "\E[32mInstallation gpg\E[0m"
 apt install git -y
 echo -e "\E[32mInstallation git\E[0m"
 systemctl start mariadb
-systemctl start mariadb
