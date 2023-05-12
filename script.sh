@@ -7,7 +7,8 @@ echo -e "\E[32mInstallation apache2\E[0m"
 apt install libapache2-mod-php -y
 echo -e "\E[32mInstallation libapache2\E[0m"
 apt install mariadb-server -y
-echo -e "\E[32mInstallation mariadb server\E[0m"
+systemctl start mariadb
+echo -e "\E[32mInstallation et démarage de mariadb server\E[0m"
 apt install php php-mysql -y
 echo -e "\E[32mInstallation php\E[0m"
 apt install curl -y
@@ -20,4 +21,13 @@ apt install gpg -y
 echo -e "\E[32mInstallation gpg\E[0m"
 apt install git -y
 echo -e "\E[32mInstallation git\E[0m"
-systemctl start mariadb
+cd ~
+cd /var/www/html
+echo -e "\E[32mcd /var/www/html\E[0m"
+rm index.html
+rm index.php
+touch index.php
+echo "<?php
+print (\"test\")
+?>" >> index.php
+systemctl reload apache2
